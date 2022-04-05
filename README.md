@@ -58,12 +58,16 @@ const finalTicketPrice = newUserAge.adjustPrice();
 Describe: findAgeRange(age);
 
 Test: "It should receive input age from user, and store data"
-Code: findAgeRange ("12");
+Code: User.findAgeRange("12");
 Expected Output: "12"
 
-Test: "It should receive inputted name from user, and store data"
-Code: addUser("Caleb");
-Expected Output: "Caleb"
+Test: "It should subract 5 from ticket price if user is a child"
+Code: User.findAgeRange("11")
+Expected Output: ticketPrice = 10;
+
+Test: "It should subract 5 from ticket price if user is a senior"
+Code: User.findAgeRange("56")
+Expected Output: ticketPrice = 10;
 
 
 
@@ -73,3 +77,9 @@ Test: "It should add ID."
 Code: assignId();
 Expected Output: <object> {....id:1};
 
+
+
+
+Test: "It should receive inputted name from user, and store data"
+Code: User.addUser("Caleb");
+Expected Output: "Caleb"

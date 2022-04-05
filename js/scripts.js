@@ -20,12 +20,21 @@ let ticketBook = new TicketBook();
 function User(name, age) {
   this.name = name;
   this.age = age;
+  this.ticketPrice = 15;
 }
 
 
 User.prototype.findAgeRange = function(age) {
   let userAge = this.age;
-  return userAge;
+  let intUserAge = parseInt(userAge);
+  if (intUserAge < 13) {
+    ticketPrice = this.ticketPrice - 5;
+    return ticketPrice;
+  } else if (intUserAge > 54) {
+    ticketPrice = this.ticketPrice - 5;
+    return ticketPrice; 
+  }
+  return ticketPrice;
 };
 
 
