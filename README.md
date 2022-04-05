@@ -13,6 +13,7 @@ User age.
 
 = Cost of ticket
 
+
 Object: function Movie(name, newRelease, timeOfDay){
   this.name = name;
   this.newRelease = newRelease;
@@ -24,8 +25,17 @@ const theBatman = new Movie("The Batman", true, movieTimes);
 const pulpFiction = new Movie("Pulp Fiction", false, movieTimes);
 const liarLiar = new Movie("Liar Liar", false, movieTimes);
 
-Object: User(name, age)
-  Prototype: findAgeRange (kid, senior){
+Object: User(age) {
+  this.age = age;
+  this.currentId = 0;
+}
+
+  prototype: assignId(user){
+    this.currentId += 1;
+    return thiscurrentId;
+  }
+
+  Prototype: findAgeRange (age){
     if (age < 13) {kid}, else if (age > 64) {senior}};
 
 Object: Tickets ()
@@ -34,27 +44,32 @@ Object: Tickets ()
 
 
 //UI scripts for user input
-let newUser = new User(name, age)
+let newUser = new User(age)
 const newUserAge = newUser.findAgeRange();
 
 const finalTicketPrice = newUserAge.adjustPrice();
   expected output:
 
-let minion = new user("Banana", "6") //use second arguement for return value;
-let legolas = new user("Elf Dude", "12000");
+//let minion = new user("Banana", "6") //use second arguement for return value;
+//let legolas = new user("Elf Dude", "12000");
 
 
 
-Describe:
+Describe: findAgeRange(age);
 
-Test:
-Code:
-Expected Output:
+Test: "It should receive input age from user, and store data"
+Code: findAgeRange ("12");
+Expected Output: "12"
+
+Test: "It should receive inputted name from user, and store data"
+Code: addUser("Caleb");
+Expected Output: "Caleb"
 
 
 
-Describe:
+Describe: assignId();
 
-Test:
-Code:
-Expected Output:
+Test: "It should add ID."
+Code: assignId();
+Expected Output: <object> {....id:1};
+
