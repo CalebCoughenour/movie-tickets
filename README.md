@@ -69,8 +69,6 @@ Test: "It should subract 5 from ticket price if user is a senior"
 Code: User.findAgeRange("56")
 Expected Output: ticketPrice = 10;
 
-
-
 Describe: assignId();
 
 Test: "It should add ID."
