@@ -1,4 +1,4 @@
-//Business Logic
+//Business Logic for User
 
 let ticketBook = new TicketBook();
 
@@ -37,6 +37,8 @@ User.prototype.findAgeRange = function(age) {
   return ticketPrice;
 };
 
+//Business Logic for Movies
+
 let ticketPrice = 15;
 let times = [10, 14, 19];
 let movieTime = [];
@@ -74,13 +76,20 @@ Movies.prototype.adjustForMovieTime = function(movieTime, ticketPrice){
   return ticketPrice;
 }
 
-Movies.prototype.adjustForReleaseDate = function(newRelease) {
-
+Movies.prototype.adjustForReleaseDate = function(newRelease, ticketPrice) {
+  let releaseDate = this.newRelease;
+  let price = ticketPrice;
+  if(releaseDate === true){
+    ticketPrice = price + 5;
+    return ticketPrice;
+  } else {
+    return ticketPrice;
+  }
 }
 
 //UI Logic
 
-function totalTicketValue()
+// function totalTicketValue(){};
 
 $(document).ready(function () {
 

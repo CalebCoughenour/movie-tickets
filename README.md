@@ -115,6 +115,10 @@ Expect Output: ticketPrice = 10;
 
 Describe: adjustForReleaseDate();
 
+Test: "It should add 5 to price if it is a new release"
+Code: Movies.adjustForReleaseDate(true);
+Expected Output: ticketPrice = 20;
+
 Test: "It should not change price if not a new release"
 Code: Movies.adjustForReleaseDate(false);
-Expected
+Expected Output: ticketPrice = 15;
