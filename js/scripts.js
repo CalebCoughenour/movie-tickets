@@ -1,5 +1,7 @@
 //Business Logic
 
+let ticketBook = new TicketBook();
+
 function TicketBook(){
   this.users = {};
   this.currentId = 0;
@@ -15,12 +17,10 @@ TicketBook.prototype.addUser = function(user) {
   this.users[user.id] = user;
 };
 
-let ticketBook = new TicketBook();
-
 function User(name, age) {
   this.name = name;
   this.age = age;
-  this.ticketPrice = 15;
+  this.ticketPrice = [];
 }
 
 
@@ -37,8 +37,51 @@ User.prototype.findAgeRange = function(age) {
   return ticketPrice;
 };
 
+let ticketPrice = 15;
+let times = [10, 14, 19];
+let movieTime = [];
+let theBatman = new Movies("The Batman", true, movieTime);
+let pulpFiction = new Movies("Pulp Fiction", false, movieTime);
+let liarLiar = new Movies("Liar Liar", false, movieTime);
+
+function Movies(title, newRelease, movieTime) {
+  this.title = title;
+  this.newRelease = newRelease;
+  this.movieTime = movieTime;
+}
+
+Movies.prototype.setMovieTime = function(timeValue){
+  if (timeValue === 1) {
+    this.movieTime.push(times[0]);
+    return this.movieTime;
+  } else if (timeValue === 2) {
+    this.movieTime.push(times[1]);
+    return this.movieTime;
+  } else {
+    this.movieTime.push(times[2]);
+    return this.movieTime;
+  }
+};
+
+Movies.prototype.adjustForMovieTime = function(movieTime, ticketPrice){
+  let time = this.movieTime;
+  let timeInt = parseInt(time);
+  let price = ticketPrice;
+  if (timeInt === 10){
+    ticketPrice = price - 5;
+    return ticketPrice;
+  }
+  return ticketPrice;
+}
+
+Movies.prototype.adjustForReleaseDate = function(newRelease) {
+
+}
 
 //UI Logic
+
+function totalTicketValue()
+
 $(document).ready(function () {
 
   

@@ -61,6 +61,10 @@ Test: "It should receive input age from user, and store data"
 Code: User.findAgeRange("12");
 Expected Output: "12"
 
+Test: "It should not adjust price if age is above 12 and below 55"
+Code: User.findAgeRange("29");
+Expected: ticketPrice = 15;
+
 Test: "It should subract 5 from ticket price if user is a child"
 Code: User.findAgeRange("11")
 Expected Output: ticketPrice = 10;
@@ -76,8 +80,41 @@ Code: assignId();
 Expected Output: <object> {....id:1};
 
 
-
+Describe: addUser(user);
 
 Test: "It should receive inputted name from user, and store data"
 Code: User.addUser("Caleb");
 Expected Output: "Caleb"
+
+Describe: setMovieTime(timeOfDay);
+
+Test: "It should set time to 10 if 10am is chosen"
+Code: Movies.setMovieTime(1);
+Expected Output: 10;
+
+Test: "It should set time to 14 if 2pm is chosen"
+Code: Movies.setMovieTime(2);
+Expected Output: 14;
+
+Test: "It should set the time to 19 if 7pm is chosen"
+Code: Movies.setMovieTime(3);
+Expected Output: 19;
+
+
+
+Describe: adjustForMovieTime();
+
+Test: "It should not change price if time other than matinee is chosen."
+Code: Movies.adjustForMovieTime(14);
+Expected Output: ticketPrice = 15;
+
+Test: "It should subtract 5 from price if matinee is chosen."
+Code: Movies.adjustForMovieTime(10);
+Expect Output: ticketPrice = 10;
+
+
+Describe: adjustForReleaseDate();
+
+Test: "It should not change price if not a new release"
+Code: Movies.adjustForReleaseDate(false);
+Expected
