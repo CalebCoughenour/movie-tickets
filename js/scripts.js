@@ -89,11 +89,31 @@ Movies.prototype.adjustForReleaseDate = function(newRelease, ticketPrice) {
 
 //UI Logic
 
-// function totalTicketValue(){};
-
 $(document).ready(function () {
+  $("#movie-form").submit(function(event) {
+    event.preventDefault();
 
-  
+    //selectors
+    const userName = $("#users-name").val();
+    const userAge = $("#users-age").val();
+    const movieSelection = parseInt($("#movie-selection").val());
+    const formMovieTime = parseInt($("#movie-time").val());
+
+    //user
+    let newUser = new User(userName, userAge);
+
+    //movie
+    function selectMovie(movieSelection){
+      if (movieSelection === 1){
+        theBatman.setMovieTime(formMovieTime);
+      } else if (movieSelection === 2){
+        pulpFiction.setMovieTime(formMovieTime);
+      } else if (movieSelection === 3){
+        liarLiar.setMovieTime(formMovieTime);
+      }
+    }
+    selectMovie(movieSelection);
+  });
 });
 
 
